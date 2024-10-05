@@ -53,7 +53,7 @@
     {
       "group": "Get Started",
       "pages": [
-        "get_started/introduction",
+        "pt-BR/get_started/introduction",
         {
           "group": "Installation",
           "icon": "download",
