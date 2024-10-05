@@ -1,0 +1,23 @@
+Crie um ambiente virtual com qualquer versão do Python superior a 3.9. 
+
+<CodeGroup>
+
+```bash conda
+conda create -n comfy-env python=3.11
+conda activate comfy-env
+```
+
+```bash venv
+python3 -m venv comfy-env
+source comfy-env/bin/activate
+```
+
+</CodeGroup>
+
+Installe o ComfyUI
+
+```bash
+comfy install
+```
+
+<Warning>Você ainda precisa instalar o CUDA ou o ROCm, dependendo da sua GPU.</Warning>
