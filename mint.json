@@ -125,7 +125,7 @@
         "pages": [
             "advanced/sdxl",
             "advanced/sdcascade",
-            "advanced/svd"
+            "pt-BR/advanced/svd"
         ]
     },
     {
@@ -200,7 +200,6 @@
     {
       "group": "Tips and tricks",
       "pages": [
-        "tips/shortcuts",
         "pt-BR/tips/shortcuts"
       ]
     }
