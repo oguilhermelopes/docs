@@ -1,0 +1,64 @@
+**Utilização**:
+
+```console
+$ comfy model [OPÇÕES] COMANDOS [ARGS]...
+```
+
+**Opções**:
+
+* `--install-completion`: Instalar conclusão para o shell atual.
+* `--show-completion`: Exibir conclusão para o shell atual, para copiá-la ou personalizar a instalação.
+* `--help`: Mostra as opções disponiveis.
+
+**Comandos**:
+
+* `download`: Baixar um modelo para um caminho relativo especificado...
+* `list`: Exibir uma lista com todos os modelos...
+* `remove`: Remover um ou mais modelos baixados...
+
+### `download`
+
+Baixe um modelo para um caminho relativo especificado, caso ele ainda não tenha sido baixado.
+
+**Utilização**:
+
+```console
+$ download [OPÇÕES]
+```
+
+**OPÇÕES**:
+
+* `--url URL`: A URL de onde baixar o modelo [obrigatório]
+* `--relative-path CAMINHO`: O caminho relativo do espaço de trabalho atual para instalar o modelo. [padrão: models/checkpoints]
+* `--help`: Mostra as opções disponiveis.
+
+### `list`
+
+Exibe uma lista de todos os modelos baixados
+
+**Utilização**:
+
+```console
+$ list [OPÇÕES]
+```
+
+**OPÇÕES**:
+
+* `--relative-path CAMINHO`: O caminho relativo do espaço de trabalho atual onde os modelos estão armazenados. [padrão: models/checkpoints]
+* `--help`: Mostra as opções disponiveis.
+
+### `remove`
+
+Remova um ou mais modelos baixados, especificando-os diretamente ou por meio de uma seleção interativa.
+
+**Utilização**:
+
+```console
+$ remove [OPÇÕES]
+```
+
+**OPÇÕES**:
+
+* `--relative-path CAMINHO`: O caminho relativo do espaço de trabalho atual onde os modelos estão armazenados. [padrão: models/checkpoints]
+* `--model-names TEXT`: Lista de nomes de arquivos de modelos a serem excluídos, separados por espaços
+* `--help`: Mostra as opções disponiveis.
