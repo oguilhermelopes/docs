@@ -1,0 +1,56 @@
+---
+title: "Instalação Manual"
+---
+
+import GitClone from "/pt-BR/snippets/git-clone.mdx";
+import Conda from "/pt-BR/snippets/conda.mdx";
+import PipInstall from "/pt-BR/snippets/pip-install.mdx";
+import InstallGpuDependencies from "/pt-BR/snippets/install-gpu-dependencies.mdx";
+import RunComfy from "/pt-BR/snippets/run-comfy.mdx";
+
+<Tabs>
+<Tab title="Windows">
+### Clone o repositório
+
+<GitClone />
+
+<Warning>Se você não instalou o Microsoft Visual C++ Redistributable, por favor, instale-o [aqui.](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)</Warning>
+
+
+### Instalar Dependências
+
+1. <Conda />
+1. <InstallGpuDependencies />
+1. <PipInstall />
+1. <RunComfy />
+</Tab>
+<Tab title="Linux">
+
+### Clone o repositório
+
+<GitClone />
+
+### Instalar Dependências
+
+1. <Conda />
+1. <InstallGpuDependencies />
+1. <PipInstall />
+1. <RunComfy />
+</Tab>
+
+<Tab title="MacOS">
+
+### Instalar Dependências
+
+Abra o [terminal](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac).
+
+<GitClone />
+
+### Instalar Dependências
+
+1. <Conda />
+1. <InstallGpuDependencies />
+1. <PipInstall />
+1. <RunComfy />
+</Tab>
+</Tabs>
