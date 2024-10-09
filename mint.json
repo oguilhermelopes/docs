@@ -142,12 +142,6 @@
       ]
     },
     {
-      "group": "teste",
-      "pages": [
-        "pt-BR/snippets/cli-reference/models"
-      ]
-    },
-    {
       "group": "Registry",
       "pages": [
         "registry/overview",

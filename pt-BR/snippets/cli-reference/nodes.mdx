@@ -1,0 +1,266 @@
+
+**Utilização**:
+
+```console
+$ comfy node [OPÇÕES] COMANDO [ARGS]...
+```
+
+**Opções**:
+
+* `--install-completion`: Instalar conclusão para o shell atual.
+* `--show-completion`: Exibir conclusão para o shell atual, para copiá-la ou personalizar a instalação.
+* `--help`: Mostra as opções disponiveis.
+
+**Comandos**:
+
+* `deps-in-workflow`
+* `disable`
+* `enable`
+* `fix`
+* `install`
+* `install-deps`
+* `reinstall`
+* `restore-dependencies`
+* `restore-snapshot`
+* `save-snapshot`: Salvar um instantâneo do ComfyUI atual...
+* `show`
+* `simple-show`
+* `uninstall`
+* `update`
+
+### `deps-in-workflow`
+
+**Utilização**:
+
+```console
+$ deps-in-workflow [OPÇÕES]
+```
+
+**Opções**:
+
+* `--workflow TEXT`: Arquivo de fluxo de trabalho (.json/.png)  [obrigatório]
+* `--output TEXT`: Arquivo de fluxo de trabalho (.json/.png)  [obrigatório]
+* `--channel TEXT`: Especifique o modo de operação
+* `--mode TEXT`: [remote|local|cache]
+* `--help`: Mostra as opções disponiveis.
+
+### `disable`
+
+**Utilização**:
+
+```console
+$ disable [OPÇÕES] ARGS...
+```
+
+**Argumentos**:
+
+* `ARGS...`: desabilitar nós personalizados [obrigatório]
+
+**Opções**:
+
+* `--channel TEXT`: Especifique o modo de operação
+* `--mode TEXT`: [remote|local|cache]
+* `--help`: Mostra as opções disponiveis.
+
+### `enable`
+
+**Utilização**:
+
+```console
+$ enable [OPÇÕES] ARGS...
+```
+
+**Argumentos**:
+
+* `ARGS...`: habilitar nós personalizados [obrigatório]
+
+**Opções**:
+
+* `--channel TEXT`: Especifique o modo de operação
+* `--mode TEXT`: [remote|local|cache]
+* `--help`: Mostra as opções disponiveis.
+
+### `fix`
+
+**Utilização**:
+
+```console
+$ fix [OPÇÕES] ARGS...
+```
+
+**Argumentos**:
+
+* `ARGS...`: corrigir dependências para nós personalizados especificados  [obrigatório]
+
+**Opções**:
+
+* `--channel TEXT`: Especifique o modo de operação
+* `--mode TEXT`: [remote|local|cache]
+* `--help`: Mostra as opções disponiveis.
+
+### `install`
+
+**Utilização**:
+
+```console
+$ install [OPÇÕES] ARGS...
+```
+
+**Argumentos**:
+
+* `ARGS...`: instalar nós personalizados  [obrigatório]
+
+**Opções**:
+
+* `--channel TEXT`: Especifique o modo de operação
+* `--mode TEXT`: [remote|local|cache]
+* `--help`: Mostra as opções disponiveis.
+
+### `install-deps`
+
+**Utilização**:
+
+```console
+$ install-deps [OPÇÕES]
+```
+
+**Opções**:
+
+* `--deps TEXT`: Arquivo de especificação de dependência (.json)
+* `--workflow TEXT`: Arquivo de fluxo de trabalho (.json/.png)
+* `--channel TEXT`: Especifique o modo de operação
+* `--mode TEXT`: [remote|local|cache]
+* `--help`: Mostra as opções disponiveis.
+
+### `reinstall`
+
+**Utilização**:
+
+```console
+$ reinstall [OPÇÕES] ARGS...
+```
+
+**Argumentos**:
+
+* `ARGS...`: reinstalar nós personalizados [obrigatório]
+
+**Opções**:
+
+* `--channel TEXT`: Especifique o modo de operação
+* `--mode TEXT`: [remote|local|cache]
+* `--help`: Mostra as opções disponiveis.
+
+### `restore-dependencies`
+
+**Utilização**:
+
+```console
+$ restore-dependencies [OPÇÕES]
+```
+
+**Opções**:
+
+* `--help`: Mostra as opções disponiveis.
+
+### `restore-snapshot`
+
+**Utilização**:
+
+```console
+$ restore-snapshot [OPÇÕES] Caminho
+```
+
+**Argumentos**:
+
+* `CAMINHO`: [obrigatório]
+
+**Opções**:
+
+* `--help`: Mostra as opções disponiveis.
+
+### `save-snapshot`
+
+Salvar um snapshot do ambiente ComfyUI atual
+
+**Utilização**:
+
+```console
+$ save-snapshot [OPÇÕES]
+```
+
+**Opções**:
+
+* `--output TEXT`: Especifique o caminho do arquivo de saída. (.json/.yaml)
+* `--help`: Mostra as opções disponiveis.
+
+### `show`
+
+**Utilização**:
+
+```console
+$ show [OPÇÕES] ARGS...
+```
+
+**Argumentos**:
+
+* `ARGS...`: [installed|enabled|not-installed|disabled|all|snapshot|snapshot-list]  [obrigatório]
+
+**Opções**:
+
+* `--channel TEXT`: Especifique o modo de operação
+* `--mode TEXT`: [remote|local|cache]
+* `--help`: Mostra as opções disponiveis.
+
+### `simple-show`
+
+**Utilização**:
+
+```console
+$ simple-show [OPÇÕES] ARGS...
+```
+
+**Argumentos**:
+
+* `ARGS...`: [installed|enabled|not-installed|disabled|all|snapshot|snapshot-list]  [obrigatório]
+
+**Opções**:
+
+* `--channel TEXT`: Especifique o modo de operação
+* `--mode TEXT`: [remote|local|cache]
+* `--help`: Mostra as opções disponiveis.
+
+### `uninstall`
+
+**Utilização**:
+
+```console
+$ uninstall [OPÇÕES] ARGS...
+```
+
+**Argumentos**:
+
+* `ARGS...`: desinstalar nós personalizados [obrigatório]
+
+**Opções**:
+
+* `--channel TEXT`: Especifique o modo de operação
+* `--mode TEXT`: [remote|local|cache]
+* `--help`: Mostra as opções disponiveis.
+
+### `update`
+
+**Utilização**:
+
+```console
+$ update [OPÇÕES] ARGS...
+```
+
+**Argumentos**:
+
+* `ARGS...`: atualizar nós personalizados [obrigatório]
+
+**Opções**:
+
+* `--channel TEXT`: Especifique o modo de operação
+* `--mode TEXT`: [remote|local|cache]
+* `--help`: Mostra as opções disponiveis.
