@@ -1,0 +1,50 @@
+---
+title: "Pacotes Pré-compilados"
+---
+
+import GitClone from "/pt-BR/snippets/git-clone.mdx";
+import Conda from "/pt-BR/snippets/conda.mdx";
+import PipInstall from "/pt-BR/snippets/pip-install.mdx";
+import InstallGpuDependencies from "/pt-BR/snippets/install-gpu-dependencies.mdx";
+import RunComfy from "/pt-BR/snippets/run-comfy.mdx";
+
+<Tabs>
+<Tab title="Windows">
+Funciona em GPUs ou CPUs NVIDIA. Para outros, tente a instalação manual. 
+
+<Steps>
+<Step title="Download">
+<a className="prose" href="https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_nvidia.7z" style={{ display: 'inline-block', backgroundColor: '#0078D6', color: '#ffffff', padding: '10px 20px', borderRadius: '8px', borderColor: "transparent", textDecoration: 'none', fontWeight: 'bold'}}>
+    <p className="prose" style={{ margin: 0, fontSize: "0.8rem" }}>Download para Windows</p>
+  </a>
+</Step>
+
+<Step title="Extract">
+Extrair com [7-Zip](https://7-zip.org/)
+</Step>
+<Step title="Run">
+Use `run_nvidia_gpu` para executá-lo utilizando sua GPU NVIDIA.
+
+Use `run_cpu` para executá-lo utilizando apenas sua CPU.
+</Step>
+</Steps>
+</Tab>
+<Tab title="Linux">
+## Linux
+
+
+<Warning>
+Pacotes pré-compilados para Linux ainda não estão disponíveis. Por favor, tente a instalação manual.
+</Warning>
+
+</Tab>
+
+<Tab title="MacOS">
+
+## MacOS
+
+<Warning>
+Pacotes pré-compilados para MacOS ainda não estão disponíveis. Por favor, tente a instalação manual.
+</Warning>
+</Tab>
+</Tabs>
