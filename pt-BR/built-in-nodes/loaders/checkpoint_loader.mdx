@@ -1,0 +1,32 @@
+---
+title: "Carregar Checkpoint"
+---
+
+O nó Carregar Checkpoint pode ser usado para carregar um modelo de difusão, modelos de difusão são usados para remover ruído de latentes. Este nó também fornecerá o modelo VAE e CLIP apropriado.
+
+## Inputs 
+
+<ResponseField name="ckpt_name">
+
+
+O nome do modelo.
+</ResponseField>
+
+
+## Outputs
+
+<ResponseField name="MODEL">
+
+O modelo usado para remover ruído de latentes.
+
+</ResponseField>
+
+<ResponseField name="CLIP">
+
+O modelo CLIP usado para codificar prompts de texto.
+</ResponseField>
+
+<ResponseField name="VAE">
+
+O modelo VAE usado para codificar e decodificar imagens de e para o espaço latente.
+</ResponseField>
