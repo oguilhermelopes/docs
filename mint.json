@@ -137,7 +137,7 @@
     {
       "group": "CLI",
       "pages": [
-        "comfy-cli/getting-started",
+        "pt-BR/comfy-cli/getting-started",
         "comfy-cli/reference"
       ]
     },
