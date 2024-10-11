@@ -1,24 +1,24 @@
 ---
-title: "Messages"
+title: "Mensagens"
 ---
 
-## Messages
+## Mensagens
 
-During execution (or when the state of the queue changes), the `PromptExecutor` sends messages back to the client 
-through the `send_sync` method of `PromptServer`. 
+Durante a execução (ou quando o estado da fila muda), o `PromptExecutor` envia mensagens de volta ao cliente
+através do método `send_sync` do `PromptServer`.
 
-These messages are received by a socket event listener defined in `api.js` (at time of writing around line 90, or search for `this.socket.addEventListener`),
-which creates a `CustomEvent` object for any known message type, and dispatches it to any registered listeners.
+Essas mensagens são recebidas por um ouvinte de eventos de socket definido em `api.js` (no momento da escrita, por volta da linha 90, ou procure por `this.socket.addEventListener`),
+que cria um objeto `CustomEvent` para qualquer tipo de mensagem conhecido e o despacha para quaisquer ouvintes registrados.
 
-An extension can register to receive events (normally done in the `setup()` function) following the standard Javascript idiom:  
+Uma extensão pode se registrar para receber eventos (normalmente feito na função `setup()`) seguindo o idioma padrão do Javascript:
 
 ```Javascript
 api.addEventListener(message_type, messageHandler);
 ```
 
-If the `message_type` is not one of the built in ones, it will be added to the list of known message types automatically. The message `messageHandler`
-will be called with a `CustomEvent` object, which extends the event raised by the socket to add a `.detail` property, which is a dictionary of
-the data sent by the server. So usage is generally along the lines of:
+Se o `message_type` não for um dos tipos integrados, ele será adicionado automaticamente à lista de tipos de mensagens conhecidos. O `messageHandler` da mensagem
+será chamado com um objeto `CustomEvent`, que estende o evento levantado pelo socket para adicionar uma propriedade `.detail`, que é um dicionário dos
+dados enviados pelo servidor. Portanto, o uso geralmente segue as linhas de:
 
 ```Javascript
 function messageHandler(event) {
@@ -28,57 +28,57 @@ function messageHandler(event) {
 }
 ```
 
-### Built in message types
+### Tipos de mensagens integradas
 
-During execution (or when the state of the queue changes), the `PromptExecutor` sends the following messages back to the client 
-through the `send_sync` method of `PromptServer`. An extension can register as a listener for any of these.
+Durante a execução (ou quando o estado da fila muda), o `PromptExecutor` envia as seguintes mensagens de volta ao cliente 
+através do método `send_sync` do `PromptServer`. Uma extensão pode se registrar como um ouvinte para qualquer uma dessas.
 
-|event|when|data|
+|event|when|data|  
 |-|-|-|
-|`execution_start`|When a prompt is about to run|`prompt_id`|
-|`execution_error`|When an error occurs during execution|`prompt_id`, plus additional information|
-|`execution_interrupted`|When execution is stopped by a node raising `InterruptProcessingException`|`prompt_id`, `node_id`, `node_type` and `executed` (a list of executed nodes)|
-|`execution_cached`|At the start of execution|`prompt_id`, `nodes` (a list of nodes which are being skipped because their cached outputs can be used)|
-|`executing`|When a new node is about to be executed|`node` (node id or `None` to indicate completion), `prompt_id`|
-|`executed`|When a node returns a ui element |`node` (node id), `prompt_id`, `output`|
-|`progress`|During execution of a node that implements the required hook|`node` (node id), `prompt_id`, `value`, `max`|
-|`status`|When the state of the queue changes|`exec_info`, a dictionary holding `queue_remaining`, the number of entries in the queue|
+|`execution_start`|Quando um prompt está prestes a ser executado|`prompt_id`|
+|`execution_error`|Quando um erro ocorre durante a execução|`prompt_id`, mais informações adicionais|
+|`execution_interrupted`|Quando a execução é interrompida por um nó levantando `InterruptProcessingException`|`prompt_id`, `node_id`, `node_type` e `executed` (uma lista de nós executados)|
+|`execution_cached`|No início da execução|`prompt_id`, `nodes` (uma lista de nós que estão sendo pulados porque suas saídas em cache podem ser usadas)|
+|`executing`|Quando um novo nó está prestes a ser executado|`node` (id do nó ou `None` para indicar conclusão), `prompt_id`|
+|`executed`|Quando um nó retorna um elemento ui |`node` (id do nó), `prompt_id`, `output`|
+|`progress`|Durante a execução de um nó que implementa o hook necessário|`node` (id do nó), `prompt_id`, `value`, `max`|
+|`status`|Quando o estado da fila muda|`exec_info`, um dicionário que segura `queue_remaining`, o número de entradas na fila|
 
-### Using executed
+### Usando executado
 
-Despite the name, an `executed` message is not sent whenever a node completes execution (unlike `executing`), but only when the node
-returns a ui update.
+Apesar do nome, uma mensagem `executed` não é enviada sempre que um nó completa a execução (ao contrário de `executing`), mas apenas quando o nó
+retorna uma atualização ui.
 
-To do this, the main function needs to return a dictionary instead of a tuple:
+Para fazer isso, a função principal precisa retornar um dicionário em vez de uma tupla:
 
 ```python
 # at the end of my main method
         return { "ui":a_new_dictionary, "result": the_tuple_of_output_values }
 ```
 
-`a_new_dictionary` will then be sent as the value of `output` in an `executed` message. 
-The `result` key can be omitted if the node has no outputs (see, for instance, the code for `SaveImage` in `nodes.py`)
+`a_new_dictionary` será então enviado como o valor de `output` em uma mensagem `executed`. 
+A chave `result` pode ser omitida se o nó não tiver saídas (veja, por exemplo, o código para `SaveImage` em `nodes.py`)
 
-### Custom message types
+### Tipos de mensagens personalizados
 
-As indicated above, on the client side, a custom message type can be added simply by registering as a listener for a unique message type name.
+Como indicado acima, no lado do cliente, um tipo de mensagem personalizado pode ser adicionado simplesmente se registrando como um ouvinte para um nome único de tipo de mensagem.
 
 ```Javascript
 api.addEventListener("my.custom.message", messageHandler);
 ```
 
-On the server, the code is equally simple:
+No servidor, o código é igualmente simples:
 ```Python
 from server import PromptServer
 # then, in your main execution function (normally)
         PromptServer.instance.send_sync("my.custom.message", a_dictionary)
 ```
 
-#### Getting node_id
+#### Obtendo node_id
 
-Most of the built-in messages include the current node id in the value of `node`. It's likely that you will want to do the same. 
+A maioria das mensagens integradas inclui o id do nó atual no valor de `node`. É provável que você queira fazer o mesmo.
 
-The node_id is available on the server side through a hidden input, which is obtained with the `hidden` key in the `INPUT_TYPES` dictionary:
+O node_id está disponível no lado do servidor através de uma entrada oculta, que é obtida com a chave `hidden` no dicionário `INPUT_TYPES`:
 
 ```Python
     @classmethod    
