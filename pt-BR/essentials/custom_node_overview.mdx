@@ -1,0 +1,48 @@
+---
+title: "Visão Geral"
+---
+
+## O que é um nó personalizado?
+
+Um dos grandes poderes do Comfy é sua abordagem baseada em nós que permite o desenvolvimento de novos fluxos de trabalho
+conectando os nós fornecidos de diferentes maneiras. Os nós integrados oferecem uma ampla gama de
+funcionalidades, mas você pode descobrir que precisa de um recurso não fornecido por um nó principal.
+Os nós personalizados permitem que você implemente novos recursos e os compartilhe com a comunidade mais ampla.
+
+Um nó personalizado, como qualquer nó do Comfy, essencialmente recebe uma entrada, faz algo com ela e produz uma saída.
+Embora alguns nós personalizados realizem tarefas altamente complexas, muitos apenas fazem uma coisa. Aqui está um exemplo de um
+nó simples que pega uma imagem e a inverte.
+
+![Nó de Imagens Únicas](/images/invert_image_node.png)
+
+## Modelo Cliente-Servidor
+
+O Comfy funciona em um modelo cliente-servidor. O servidor, escrito em Python, lida com todo o trabalho real: processamento de dados,
+modelos, difusão de imagens etc. O cliente, escrito em Javascript, lida com a interface do usuário.
+
+O Comfy também pode ser usado no modo API, no qual um fluxo de trabalho é enviado ao servidor por um cliente não-Comfy (como
+outra interface de usuário ou um script de linha de comando).
+
+Os nós personalizados podem ser classificados em uma das quatro categorias:
+
+### Apenas do lado do servidor
+
+A maioria dos Nós Personalizados funciona puramente no lado do servidor, definindo uma classe Python que especifica 
+os tipos de entrada e saída, e fornece uma função que pode ser chamada para processar entradas e produzir uma saída.
+
+### Apenas do lado do cliente
+
+Alguns Nós Personalizados fornecem uma modificação na interface do usuário do cliente, mas não adicionam funcionalidade principal. Apesar do nome,
+eles podem nem mesmo adicionar novos nós ao sistema.
+
+### Cliente e Servidor Independentes
+
+Os nós personalizados podem fornecer recursos adicionais do servidor e recursos adicionais (relacionados) da interface do usuário (como um novo
+widget para lidar com um novo tipo de dados). Na maioria dos casos, a comunicação entre o cliente e o servidor pode ser tratada
+pelo controle de fluxo de dados do Comfy.
+
+### Cliente e Servidor Conectados
+
+Em um pequeno número de casos, os recursos da interface do usuário e o servidor precisam interagir diretamente entre si.
+
+<Warning>Qualquer nó que requer comunicação Cliente-Servidor não será compatível com o uso através da API.</Warning>

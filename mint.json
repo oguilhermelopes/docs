@@ -71,7 +71,7 @@
           "group": "Custom Nodes",
           "icon": "code",
           "pages": [
-            "essentials/custom_node_overview",
+            "pt-BR/essentials/custom_node_overview",
             "essentials/custom_node_walkthrough",
             {
               "group": "Server side (Python)",
